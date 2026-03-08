@@ -1,6 +1,6 @@
 # X1-S1: 문제재정의 워크숍
 
-> **[v1.6.15]** 제조 AI 실무 교육과정 — X1 시작 세션 (2시간)
+> **[v1.6.15]** KOREATECH 제조AI 실무 교육과정 — X1 시작 세션 (2시간)
 
 ## 학습 목표
 
@@ -15,7 +15,7 @@
 |:----:|------|------|
 | 1 | 현장 문제 목록 작성 (팀별) | 업무-AI 매핑 워크시트 |
 | 2 | AI 해결 가능성 평가 | 체크리스트 |
-| 3 | 파일럿 후보 1건 선정 | 발표 |
+| 3 | 파일럿 후보 1건 선정 | 팀 발표 |
 
 ## 제공 자료
 
@@ -24,8 +24,7 @@
 
 ## 연계 세션
 
-- 후속: [X1-S3: RAG 구축](https://github.com/manufacturing-ai-koreatechac/x1-s3-rag-streamlit)
-- 전체 커리큘럼: [manufacturing-ai-koreatechac](https://github.com/orgs/manufacturing-ai-koreatechac/repositories)
+- 후속: [X1 메인 리포](https://github.com/manufacturing-ai-koreatechac/x1-rag-agent)
 
 ---
 *KOREATECH 제조AI 실무 교육과정 v1.6.15 | 2026-03-04*
