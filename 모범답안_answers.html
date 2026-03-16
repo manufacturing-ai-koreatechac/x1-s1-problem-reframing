@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>X1-S1: 문제재정의 — 실습 과제 모범 답안</title>
+<style>
+body { font-family: 'Apple SD Gothic Neo', 'Nanum Gothic', sans-serif; max-width: 960px; margin: 40px auto; padding: 0 20px; background: #fff; color: #333; line-height: 1.6; }
+h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+h2 { color: #2c3e50; border-bottom: 1px solid #ddd; padding-bottom: 6px; margin-top: 30px; }
+h3 { color: #34495e; }
+blockquote { border-left: 4px solid #3498db; margin: 0; padding: 8px 16px; background: #ecf0f1; border-radius: 0 4px 4px 0; }
+.cell { margin: 16px 0; }
+.input-cell { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 6px; padding: 12px 16px; }
+.input-prompt { color: #888; font-size: 12px; margin-bottom: 4px; }
+pre.code { margin: 0; white-space: pre-wrap; word-break: break-word; font-family: 'Courier New', monospace; font-size: 13px; color: #2c3e50; }
+.output-cell { margin: 4px 0 16px 0; border-left: 3px solid #27ae60; padding: 8px 16px; background: #f0fff4; }
+.output-text { font-family: monospace; font-size: 13px; white-space: pre-wrap; color: #1e8449; }
+.output-error { color: #e74c3c; }
+.output-img { margin: 8px 0; }
+.output-img img { max-width: 100%; border: 1px solid #ddd; border-radius: 4px; }
+.markdown-cell { padding: 4px 0; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+th { background: #3498db; color: white; padding: 8px 12px; text-align: left; }
+td { border: 1px solid #ddd; padding: 8px 12px; }
+tr:nth-child(even) { background: #f2f2f2; }
+</style>
+</head>
+<body>
+<h1>X1-S1: 문제재정의 — 실습 과제 모범 답안</h1>
+<div class="cell markdown-cell"><h1>X1-S1: 문제재정의 — 실습 과제 모범 답안</h1>
+<blockquote>KOREATECH 제조AI 교육과정 v1.6.15 | 교수자 배포용</blockquote>
+<br>
+<p>이 노트북은 보고서 형식의 과제 모범 답안입니다.</p></div>
+<div class="cell markdown-cell"><h2>과제 A (필수): 다른 제조 공정 문제 재정의</h2>
+<br>
+<p><strong>선택 공정: 도장 공정 (자동차 차체 도장라인)</strong></p></div>
+<div class="cell">
+<div class="input-cell">
+<div class="input-prompt">In [1]:</div>
+<pre class="code"># 과제 A 모범 답안 — 코드 셀로 구조화
+problems = {
+    &#x27;현상&#x27;:      &#x27;매월 도장 불량 30건 발생 (불량률 3.0%). 주요 유형: 오렌지필 50%, 핀홀 30%, 처짐 20%&#x27;,
+    &#x27;원인(추정)&#x27;: &#x27;온도·습도 변화로 도료 건조 불량. 분사 압력 불균일 시 핀홀 발생. 현재 환경 센서는 있으나 실시간 제어 없음&#x27;,
+    &#x27;목표&#x27;:      &#x27;AI 환경 모니터링으로 불량률 1.5% 이하 달성 (현재 대비 50% 감소). 3개월 파일럿 후 검증&#x27;
+}
+for k, v in problems.items():
+    print(f&quot;[{k}]&quot;)
+    print(f&quot;  {v}&quot;)
+    print()
+</pre>
+</div><div class="output-cell"><pre class="output-text">[현상]
+  매월 도장 불량 30건 발생 (불량률 3.0%). 주요 유형: 오렌지필 50%, 핀홀 30%, 처짐 20%
+
+[원인(추정)]
+  온도·습도 변화로 도료 건조 불량. 분사 압력 불균일 시 핀홀 발생. 현재 환경 센서는 있으나 실시간 제어 없음
+
+[목표]
+  AI 환경 모니터링으로 불량률 1.5% 이하 달성 (현재 대비 50% 감소). 3개월 파일럿 후 검증
+
+</pre></div></div>
+<div class="cell markdown-cell"><h2>과제 B (필수): AI 해결 가능/불가능 구분</h2></div>
+<div class="cell">
+<div class="input-cell">
+<div class="input-prompt">In [2]:</div>
+<pre class="code">ai_가능 = [
+    &#x27;온도·습도·압력 센서 데이터로 불량 발생 조건 학습 → 실시간 경보 (분류 모델)&#x27;,
+    &#x27;과거 불량 패턴 분석으로 고위험 시간대/작업자 조합 탐지&#x27;,
+]
+ai_어려움 = [
+    &#x27;도료 점도나 작업자 기술력 차이: 비정형 데이터, 암묵지 → 데이터화 자체가 어려움&#x27;,
+    &#x27;법적 품질 보증 판단: 최종 책임 판단은 인간 필요&#x27;,
+]
+
+print(&quot;=== AI가 해결 가능한 부분 ===&quot;)
+for i, item in enumerate(ai_가능, 1):
+    print(f&quot;  {i}. {item}&quot;)
+
+print()
+print(&quot;=== AI가 해결하기 어려운 부분 ===&quot;)
+for i, item in enumerate(ai_어려움, 1):
+    print(f&quot;  {i}. {item}&quot;)
+</pre>
+</div><div class="output-cell"><pre class="output-text">=== AI가 해결 가능한 부분 ===
+  1. 온도·습도·압력 센서 데이터로 불량 발생 조건 학습 → 실시간 경보 (분류 모델)
+  2. 과거 불량 패턴 분석으로 고위험 시간대/작업자 조합 탐지
+
+=== AI가 해결하기 어려운 부분 ===
+  1. 도료 점도나 작업자 기술력 차이: 비정형 데이터, 암묵지 → 데이터화 자체가 어려움
+  2. 법적 품질 보증 판단: 최종 책임 판단은 인간 필요
+</pre></div></div>
+<div class="cell markdown-cell"><h2>과제 C (심화): 필요 데이터 &amp; AI 방법론</h2></div>
+<div class="cell">
+<div class="input-cell">
+<div class="input-prompt">In [3]:</div>
+<pre class="code">import matplotlib
+matplotlib.rcParams[&#x27;font.family&#x27;] = &#x27;AppleGothic&#x27;
+import matplotlib.pyplot as plt
+
+필요_데이터 = [&#x27;온도 센서&#x27;, &#x27;습도 센서&#x27;, &#x27;분사 압력&#x27;, &#x27;도료 점도&#x27;, &#x27;불량 여부(레이블)&#x27;, &#x27;작업자 ID&#x27;]
+ai_방법 = {
+    &#x27;레이블 있음 (지도학습)&#x27;: &#x27;Random Forest / XGBoost 분류&#x27;,
+    &#x27;레이블 없음 (비지도)&#x27;:   &#x27;Isolation Forest 이상탐지&#x27;,
+    &#x27;시계열 패턴&#x27;:           &#x27;LSTM 이상 예측&#x27;,
+}
+
+print(&quot;필요 데이터:&quot;)
+for d in 필요_데이터:
+    print(f&quot;  - {d}&quot;)
+print()
+print(&quot;AI 방법론 선택:&quot;)
+for cond, method in ai_방법.items():
+    print(f&quot;  [{cond}] → {method}&quot;)
+print()
+print(&quot;→ 도장 공정 초기: 레이블(불량 판정) 수집 비용이 높으므로&quot;)
+print(&quot;  Isolation Forest(비지도)로 시작 후 레이블 축적 시 지도학습 전환 권장&quot;)
+</pre>
+</div><div class="output-cell"><pre class="output-text">필요 데이터:
+  - 온도 센서
+  - 습도 센서
+  - 분사 압력
+  - 도료 점도
+  - 불량 여부(레이블)
+  - 작업자 ID
+
+AI 방법론 선택:
+  [레이블 있음 (지도학습)] → Random Forest / XGBoost 분류
+  [레이블 없음 (비지도)] → Isolation Forest 이상탐지
+  [시계열 패턴] → LSTM 이상 예측
+
+→ 도장 공정 초기: 레이블(불량 판정) 수집 비용이 높으므로
+  Isolation Forest(비지도)로 시작 후 레이블 축적 시 지도학습 전환 권장
+</pre></div></div>
+</body></html>
